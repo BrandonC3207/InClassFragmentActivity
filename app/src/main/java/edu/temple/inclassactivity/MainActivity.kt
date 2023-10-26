@@ -2,6 +2,7 @@ package edu.temple.inclassactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
@@ -17,11 +18,13 @@ class MainActivity : AppCompatActivity() {
         // Attach an instance of ImageDisplayFragment using factory method
         val fragment = ImageDisplayFragment.newInstance(imageArray)
 
-
-        (supportFragmentManager.findFragmentById(R.id.fragmentContainerView3) as ImageDisplayFragment)
-            .setImages(imageArray)
         //    .beginTransaction()
         //    .add(R.id.fragmentContainerView3, fragment)
         //    .commit()
+
+        findViewById<Button>(R.id.button2).setOnClickListener(){
+            (supportFragmentManager.findFragmentById(R.id.fragmentContainerView3) as ImageDisplayFragment)
+                .setImages(imageArray)
+        }
     }
 }
