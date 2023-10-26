@@ -17,12 +17,7 @@ class MainActivity : AppCompatActivity() {
         val imagesViewModel = ViewModelProvider(this)[ImagesViewModel::class.java]
         typedArray.recycle()
 
-        // Attach an instance of ImageDisplayFragment using factory method
-        val fragment = ImageDisplayFragment.newInstance(imageArray)
-
-        //    .beginTransaction()
-        //    .add(R.id.fragmentContainerView3, fragment)
-        //    .commit()
+        imagesViewModel.setImages(imageArray)
 
         findViewById<Button>(R.id.button2).setOnClickListener(){
             (supportFragmentManager.findFragmentById(R.id.fragmentContainerView3) as ImageDisplayFragment)
