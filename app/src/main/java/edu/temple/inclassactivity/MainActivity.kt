@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         // Fetch images into IntArray called imageArray
         val typedArray = resources.obtainTypedArray(R.array.image_ids)
         val imageArray = IntArray(typedArray.length()) {typedArray.getResourceId(it, 0)}
+        val imagesViewModel = ViewModelProvider(this)[ImagesViewModel::class.java]
         typedArray.recycle()
 
         // Attach an instance of ImageDisplayFragment using factory method
